@@ -1,0 +1,23 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "es6",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowUnreachableCode": false,
+        "noImplicitReturns": true,
+        "removeComments": false,
+        "strictFunctionTypes": true,
+        "noImplicitAny": true,
+        "noEmitOnError": false,
+        "pretty": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitThis": false,
+        "noUnusedLocals": true,
+        "watch": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    }
+}
