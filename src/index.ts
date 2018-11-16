@@ -77,7 +77,6 @@ function init() {
     }
 
     scene = new THREE.Scene();
-
     light = new THREE.DirectionalLight(0xffffff);
     light.position.set(0, 0, 1);
     scene.add(light);
@@ -96,15 +95,11 @@ function init() {
     context.fillStyle = gradient;
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-
     // Add geometry
-    let shadowTexture = new THREE.CanvasTexture(canvas);
-
-    let shadowMaterial = new THREE.MeshBasicMaterial({ map: shadowTexture, transparent: true });
     let shadowGeo = new THREE.PlaneBufferGeometry(300, 300, 1, 1);
 
     for (let i = 0; i < 20; i++) {
-        //
+        //@ts-ignore
         mesh = new THREE.Mesh(shadowGeo, new THREE.PlaneBufferGeometry(300, 300, 1, 1));
         mesh.position.x = - 800 + (i * 200);
         mesh.position.y = - 250;
@@ -134,15 +129,15 @@ function init() {
     fishMesh.scale.set(s, s, s);
     scene.add(fishMesh);
 
+    // End add geometry
 
-
-    // End add
+    // Add renderer to DOM
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
 
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
 }
 
 function onDocumentMouseMove(event: MouseEvent) {
@@ -153,29 +148,21 @@ function onDocumentMouseMove(event: MouseEvent) {
 }
 
 function updateSize() {
-
     if (windowWidth != window.innerWidth || windowHeight != window.innerHeight) {
-
         windowWidth = window.innerWidth;
         windowHeight = window.innerHeight;
 
         renderer.setSize(windowWidth, windowHeight);
-
     }
-
 }
 
 function animate() {
-
     render();
-
     requestAnimationFrame(animate);
 }
 
 function render() {
-
     updateSize();
-
     for (let ii = 0; ii < views.length; ++ii) {
 
         let view = views[ii];
@@ -197,7 +184,5 @@ function render() {
         camera.updateProjectionMatrix();
 
         renderer.render(scene, camera);
-
     }
-
 }

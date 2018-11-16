@@ -8,7 +8,7 @@ Quoting wikipedia:
 
 Simply cross your eyes as with an typical stereogram and enjoy.
 
-# [Demo](https://threejsautostereogram.github.io.).
+# [Demo](https://jordianderl.github.io/threejsAutoStereogram/).
 
 ## Made with
 
